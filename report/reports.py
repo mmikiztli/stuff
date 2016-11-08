@@ -35,6 +35,4 @@ def get_latest(file_name):
         return max(game_inv_dict, key=game_inv_dict.get)
         """
 
-#def count_by_genre(file_name, genre):
-
 

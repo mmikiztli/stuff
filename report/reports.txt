@@ -1,16 +1,83 @@
-How many games are in the file?:
+int(x=0) -> integer
+int(x, base=10) -> integer
+
+Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.
+
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by '+' or '-' and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+>>> int('0b100', base=0)
+4
 24
-Is there a game from a given year?:
+bool(x) -> bool
+
+Returns True when the argument x is true, False otherwise.
+The builtins True and False are the only two instances of the class bool.
+The class bool is a subclass of the class int, and cannot be subclassed.
 True
-Which was the latest game?:
+str(object='') -> str
+str(bytes_or_buffer[, encoding[, errors]]) -> str
+
+Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.__str__() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.
 Diablo III
-How many games do we have by genre?:
+int(x=0) -> integer
+int(x, base=10) -> integer
+
+Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.
+
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by '+' or '-' and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+>>> int('0b100', base=0)
+4
 6
-What is the line number of the given game (by title)?:
+int(x=0) -> integer
+int(x, base=10) -> integer
+
+Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.
+
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by '+' or '-' and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+>>> int('0b100', base=0)
+4
 6
-What is the alphabetical ordered list of the titles?:
+list() -> new empty list
+list(iterable) -> new list initialized from iterable's items
 ['Age of Empires', 'Command & Conquer', 'Counter-Strike', 'Counter-Strike: Condition Zero', 'Crysis', 'Diablo II', 'Diablo III', 'Doom 3', 'EverQuest', "Garry's Mod", 'Guild Wars', 'Half-Life', 'Half-Life 2', 'Minecraft', 'Populous', 'StarCraft', 'StarCraft II: Wings of Liberty', 'Terraria', 'The Sims', 'The Sims 2', 'The Sims 3', 'Warcraft III: Reign of Chaos', 'Warhammer 40,000: Dawn of War (including expansions)', 'World of Warcraft']
-What are the genres?:
+list() -> new empty list
+list(iterable) -> new list initialized from iterable's items
 ['Action-adventure', 'First-person shooter', 'Real-time strategy', 'RPG', 'Sandbox', 'Simulation', 'Survival game']
-What is the release date of the top sold 'First-person shooter' game?:
+int(x=0) -> integer
+int(x, base=10) -> integer
+
+Convert a number or string to an integer, or return 0 if no arguments
+are given.  If x is a number, return x.__int__().  For floating point
+numbers, this truncates towards zero.
+
+If x is not a number or if base is given, then x must be a string,
+bytes, or bytearray instance representing an integer literal in the
+given base.  The literal can be preceded by '+' or '-' and be surrounded
+by whitespace.  The base defaults to 10.  Valid bases are 0 and 2-36.
+Base 0 means to interpret the base from the string as an integer literal.
+>>> int('0b100', base=0)
+4
 1999

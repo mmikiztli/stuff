@@ -1,3 +1,7 @@
 
 */.idea/*
 *.pyc
+./report/__pycache__/*.*
+
+
+

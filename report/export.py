@@ -1,32 +1,22 @@
 import reports
-# Export functions
 
-functions = [reports.count_games("game_stat.txt"),
-             reports.decide("game_stat.txt",2000),
-             reports.get_latest("game_stat.txt"),
-             reports.count_by_genre("game_stat.txt","First-person shooter"),
-             reports.get_line_number_by_title("game_stat.txt","Counter-Strike"),
-             reports.sort_abc("game_stat.txt"),
-             reports.get_genres("game_stat.txt"),
-             reports.when_was_top_sold_fps("game_stat.txt")]
+identity = lambda x: str(x)
+list_printer = lambda l: "\n".join([str(e) for e in l])
+
+functions = [[reports.count_games, [], identity],
+             [reports.decide, [2000], identity],
+             [reports.get_latest, [], identity],
+             [reports.count_by_genre, ["First-person shooter"], identity],
+             [reports.get_line_number_by_title, ["Counter-Strike"], identity],
+             [reports.sort_abc, [], list_printer],
+             [reports.get_genres, [], list_printer],
+             [reports.when_was_top_sold_fps, [], identity]
+             ]
+
+def export(source_file_name, output_file_name):
+    with open(output_file_name, "w+") as reports_export:
+        for [function, params, printer] in functions:
+            reports_export.writelines(function.__doc__ + "\n" + printer(function(source_file_name, *params)) + "\n\n")
 
 
-def export(source_file_name,output_file_name):
-    reports_export = open(output_file_name, "w+")
-    for item in functions:
-        reports_export.writelines(item.__doc__ + "\n" + str(item) + "\n")
-    reports_export.close()
-
-"""def export(source_file_name,output_file_name):
-    reports_export = open(output_file_name, "w+")
-    reports_export.writelines(reports.count_games.__doc__ + "\n" + str(reports.count_games(source_file_name)) + "\n")
-    reports_export.writelines(str(reports.decide(source_file_name,2000))+ "\n")
-    reports_export.writelines(str(reports.get_latest(source_file_name))+ "\n")
-    reports_export.writelines(str(reports.count_by_genre(source_file_name,"First-person shooter"))+ "\n")
-    reports_export.writelines(str(reports.get_line_number_by_title(source_file_name,"Counter-Strike"))+ "\n")
-    reports_export.writelines(str(reports.sort_abc(source_file_name))+ "\n")
-    reports_export.writelines(str(reports.get_genres(source_file_name))+ "\n")
-    reports_export.writelines(str(reports.when_was_top_sold_fps(source_file_name)))
-    reports_export.close()"""
-
-export("game_stat.txt","reports.txt")
+export("game_stat.txt", "reports.txt")

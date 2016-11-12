@@ -16,11 +16,10 @@ def decide(file_name, year):
 
 def get_latest(file_name):
     '''Which was the latest game?'''
-    game = open(file_name, "r")
-    game_inv = game.readlines()
-    game.close()
-    maximum = max(int(line.split("\t")[2]) for line in game_inv)
-    for line in game_inv:
+    with open(file_name, "r") as game_inv:
+        game_lines = game_inv.readlines()
+    maximum = max(int(line.split("\t")[2]) for line in game_lines)
+    for line in game_lines:
         if line.split("\t")[2] == str(maximum):
             return line.split("\t")[0]
 
@@ -41,23 +40,19 @@ def get_line_number_by_title(file_name, title):
 
 def sort_abc(file_name):
     '''What is the alphabetical ordered list of the titles?'''
-    game = open(file_name, "r")
-    game_inv = game.readlines()
-    game.close()
-    titles = [x[0] for x in [line.split("\t") for line in game_inv]]
-    sorted = []
+    with open(file_name, "r") as game_inv:
+        game_lines = game_inv.readlines()
+    titles = [x[0] for x in [line.split("\t") for line in game_lines]]
     for i in range(len(titles)):
-        for n in range(len(titles)):
-            if titles[i] < titles[n]:
-                titles[i], titles[n] = titles[n], titles[i]
+        for j in range(len(titles)):
+            if titles[i] < titles[j]:
+                titles[i], titles[j] = titles[j], titles[i]
     return titles
 
 def get_genres(file_name):
     '''What are the genres?'''
     with open(file_name) as game_inv:
-        genres_list = []
-        genres = [genres_list.append(x[3]) for x in [line.split("\t") for line in game_inv] if x[3] not in genres_list]
-        return sorted(genres_list, key = str.lower)
+        return sorted(set([line.split("\t")[3] for line in game_inv]), key = str.lower)
 
 def when_was_top_sold_fps(file_name):
     '''What is the release date of the top sold "First-person shooter" game?'''

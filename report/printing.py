@@ -1,5 +1,4 @@
 import reports
-# Printing functions
 
 game_file = "game_stat.txt"
 

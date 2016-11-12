@@ -48,31 +48,21 @@ def get_game(file_name, title):
 
 def count_grouped_by_genre(file_name):
     '''How many games are there grouped by genre?'''
-    game = open(file_name, "r")
-    game_inv = game.readlines()
-    game.close()
-    keys = []
-    values = []
-    genres = [keys.append(x[3]) for x in [line.split("\t") for line in game_inv] if x[3] not in keys]
-    for i in keys:
-        count = 0
-        for line in game_inv:
-            line = line.split("\t")
-            if i == line[3]:
-                count += 1
-        values.append(count)
-    return dict(zip(keys, values))
+    with open(file_name, "r") as game_inv:
+        game_lines = game_inv.readlines()
+    counts = {}
+    for line in game_lines:
+        genre = line.split("\t")[3]
+        counts.setdefault(genre, 0)
+        counts[genre] += 1
+    return counts
 
 def get_date_ordered(file_name):
     '''What is the date ordered list of the games?'''
-    game = open(file_name, "r")
-    game_inv = game.readlines()
-    game.close()
-    ordered = [[x[2], x[0]] for x in [line.split("\t") for line in game_inv]]
-    ordered = sorted(ordered, reverse = True)
-    for i in range(len(ordered)):
-        for n in range(1,len(ordered)):
-            if ordered[i][0] == ordered[n][0]:
-                if ordered[i][1] < ordered[n][1]:
-                    ordered[i], ordered[n] = ordered[n], ordered[i]
-    return [x[1] for x in ordered]
+    with open(file_name, "r") as game_inv:
+        game_lines = game_inv.readlines()
+    data = [[x[2], x[0]] for x in [line.split("\t") for line in game_lines]]
+    ordered_by_name = sorted(data, key=lambda d: d[1])
+    ordered_by_date_then_name = sorted(ordered_by_name, key=lambda d: d[0], reverse=True)
+    return [x[1] for x in ordered_by_date_then_name]
+

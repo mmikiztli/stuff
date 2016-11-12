@@ -1,0 +1,16 @@
+What is the title of the most played game?:
+Minecraft
+How many copies have been sold total?:
+187.16
+What is the average selling?:
+7.798333333333333
+How many characters long is the longest title?:
+52
+What is the average of the release dates?:
+2003
+What properties has a game?:
+['Counter-Strike', 12.5, 1999, 'First-person shooter', 'Valve Corporation']
+How many games are there grouped by genre?:
+{'RPG': 5, 'Sandbox': 1, 'Real-time strategy': 7, 'Action-adventure': 1, 'First-person shooter': 6, 'Survival game': 1, 'Simulation': 3}
+What is the date ordered list of the games?:
+Diablo IIITerrariaStarCraft II: Wings of LibertyMinecraftThe Sims 3CrysisGarry's ModGuild WarsCounter-Strike: Condition ZeroDoom 3Half-Life 2The Sims 2Warhammer 40,000: Dawn of War (including expansions)World of WarcraftWarcraft III: Reign of ChaosDiablo IIThe SimsCounter-StrikeEverQuestHalf-LifeStarCraftAge of EmpiresCommand & ConquerPopulous
